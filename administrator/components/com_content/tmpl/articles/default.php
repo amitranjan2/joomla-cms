@@ -110,6 +110,9 @@ $featuredButton = (new ActionButton(['tip_title' => 'JGLOBAL_TOGGLE_FEATURED']))
 									<?php echo HTMLHelper::_('grid.checkall'); ?>
 								</td>
 								<th scope="col" style="width:1%" class="text-center">
+									<?php echo HTMLHelper::_('searchtools.sort', 'JFEATURED', 'a.featured', $listDirn, $listOrder); ?>
+								</th>
+								<th scope="col" style="width:1%" class="text-center">
 									<?php echo HTMLHelper::_('searchtools.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
 								</th>
 								<th scope="col" style="min-width:100px">
@@ -186,10 +189,14 @@ $featuredButton = (new ActionButton(['tip_title' => 'JGLOBAL_TOGGLE_FEATURED']))
 								<td class="text-center">
 									<?php echo HTMLHelper::_('grid.id', $i, $item->id, false, 'cid', 'cb', $item->title); ?>
 								</td>
+								<td class="text-center">
+									<div class="btn-group">
+										<?php echo $featuredButton->render($item->featured, $i, ['disabled' => !$canChange]); ?>
+									</div>
+								</td>
 								<td class="article-status">
 									<div class="d-flex">
 										<div class="btn-group tbody-icon mr-1">
-										<?php echo $featuredButton->render($item->featured, $i, ['disabled' => !$canChange]); ?>
 										<?php
 
 											$options = [
@@ -213,7 +220,7 @@ $featuredButton = (new ActionButton(['tip_title' => 'JGLOBAL_TOGGLE_FEATURED']))
 										</div>
 									</div>
 								</td>
-								<th scope="row" class="has-context">
+								<th scope="row" class="has-context" style="min-width:250px;">
 									<div class="break-word">
 										<?php if ($item->checked_out) : ?>
 											<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'articles.', $canCheckin); ?>
