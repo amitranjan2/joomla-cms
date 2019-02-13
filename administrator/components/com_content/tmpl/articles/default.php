@@ -220,7 +220,7 @@ $featuredButton = (new ActionButton(['tip_title' => 'JGLOBAL_TOGGLE_FEATURED']))
 										</div>
 									</div>
 								</td>
-								<th scope="row" class="has-context" style="min-width:250px;">
+								<th scope="row" class="has-context" >
 									<div class="break-word">
 										<?php if ($item->checked_out) : ?>
 											<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'articles.', $canCheckin); ?>
